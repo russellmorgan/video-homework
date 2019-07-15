@@ -13,12 +13,14 @@ class VideoPlayer extends Component {
   }
 
   timeChange = () => {
+    //Update state using onTimeUpdate event built into video player
     this.setState({
       currentTime:  document.getElementById("current-video").currentTime
     })
   };
 
   onPlayPause = () => {
+    // Toggle play/pause and update playing state
     let video = document.getElementById("current-video");
     this.setState(state => ({
       playing: !state.playing
