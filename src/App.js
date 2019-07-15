@@ -3,7 +3,6 @@ import './App.scss';
 
 // Import the main comppnents of this video player
 import VideoPlayer from './components/VideoPlayer';
-import ViewCounter from './components/ViewCounter';
 import LikesDislikes from './components/LikesDislikes';
 
 class App extends React.Component {
@@ -12,8 +11,7 @@ class App extends React.Component {
       <div className='app'>
         <VideoPlayer />
         <div className='social'>
-          <ViewCounter />
-          <LikesDislikes />
+          <LikesDislikes views='1001' likes='2' dislikes='4' />
         </div>
       </div>
     )
