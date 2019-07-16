@@ -17,17 +17,39 @@ class LikesDislikes extends React.Component {
     // Subscribe to the Firebase data
     this.videoDatabase.ref('video-id').on('value', (snapshot) => {
       let videoData = snapshot.val()
-      // Set the initial component state from Firebase
+      // Set the views data from Firebase
       this.setState({
         views: videoData.views,
         likes: videoData.likes,
-        dislikes: videoData.dislikes
+        dislikes: videoData.dislikes,
       })
     })
   }
 
+  componentDidUpdate() {
+    // Update Firebase with new state values
+    this.videoDatabase.ref('video-id').update({
+      views: this.state.views,
+      likes: this.state.likes,
+      dislikes : this.state.dislikes
+    })
+    .then(() => {
+      console.log('firebase updated');
+      // Keep the user from spamming the buttons
+      setTimeout(() => {
+        document.getElementById('btn-like').removeAttribute('disabled');
+        document.getElementById('btn-dislike').removeAttribute('disabled');
+      }, 1500);
+    })
+    .catch((e) => {
+      alert('Could not write to database, error details:' + e);
+    });
+  }
+
   onLikeDislike = (e) => {
-    //TODO: disable both buttons
+    // Disable both buttons until Firebase has updated
+    document.getElementById('btn-like').setAttribute('disabled', 'disabled');
+    document.getElementById('btn-dislike').setAttribute('disabled', 'disabled');
     if(e.target.id === 'btn-like') {
       this.setState({
         likes: this.state.likes + 1,
@@ -39,13 +61,6 @@ class LikesDislikes extends React.Component {
         views: this.state.views + 1
       })
     }
-    // Update Firebase with new state values
-    this.videoDatabase.ref('video-id').update({
-      views: this.state.views,
-      likes: this.state.likes,
-      dislikes : this.state.dislikes
-    }); // TODO: When promise is complete, let buttons become active again
-  
   }
 
   render() {
@@ -55,8 +70,8 @@ class LikesDislikes extends React.Component {
           Total views: <span id='like-count'>{this.state.views}</span>
         </div>
         <div className='social__likes'>
-          <button type='button' disabled='true' id='btn-like' onClick={this.onLikeDislike} >LIKE THIS VIDEO ({this.state.likes})</button>
-          <button type='button' disabled='false' id='btn-dislike' onClick={this.onLikeDislike}>DISLIKE THIS VIDEO ({this.state.dislikes})</button>
+          <button type='button' id='btn-like' onClick={this.onLikeDislike}>LIKE THIS VIDEO ({this.state.likes})</button>
+          <button type='button' id='btn-dislike' onClick={this.onLikeDislike}>DISLIKE THIS VIDEO ({this.state.dislikes})</button>
         </div>
     </div>
 

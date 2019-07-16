@@ -11,7 +11,7 @@ class App extends React.Component {
       <div className='app'>
         <VideoPlayer />
         <div className='social'>
-          <LikesDislikes views='1001' likes='2' dislikes='4' />
+          <LikesDislikes />
         </div>
       </div>
     )
