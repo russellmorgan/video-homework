@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.scss';
 
-// Import the main comppnents of this video player
+// Import video player and social functionality
 import VideoPlayer from './components/VideoPlayer';
 import LikesDislikes from './components/LikesDislikes';
 
