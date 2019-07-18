@@ -25,4 +25,4 @@ App.js contains the main layout, styling (as SASS) as well as two files in the /
 1. VideoPlayer.js -> Handles playing and time stamp
 2. LikesDislikes.js -> Connects to Firebase and records likes, dislikes and total views (views = likes + dislikes)
 
-Both components have comments to help guide through my thinking as I coded this. 
+Both components have comments to help guide through my thinking as I coded this.

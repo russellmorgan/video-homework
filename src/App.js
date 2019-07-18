@@ -1,20 +1,20 @@
-import React from 'react';
-import './App.scss';
+import React from "react";
+import "./App.scss";
 
 // Import video player and social functionality
-import VideoPlayer from './components/VideoPlayer';
-import LikesDislikes from './components/LikesDislikes';
+import VideoPlayer from "./components/VideoPlayer";
+import LikesDislikes from "./components/LikesDislikes";
 
 class App extends React.Component {
   render() {
     return (
-      <div className='app'>
+      <div className="app">
         <VideoPlayer />
-        <div className='social'>
+        <div className="social">
           <LikesDislikes />
         </div>
       </div>
-    )
+    );
   }
 }
 

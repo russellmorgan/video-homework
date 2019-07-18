@@ -1,19 +1,19 @@
 body {
   background: #222;
-  margin:0;
-  padding:0;
+  margin: 0;
+  padding: 0;
 }
 
 .app {
-  width:auto;
+  width: auto;
   max-width: 800px;
-  background:#333;
+  background: #333;
   display: flex;
   flex-direction: column;
-  margin:4vh auto;
+  margin: 4vh auto;
   border-radius: 10px;
   box-shadow: 0px 0px 20px #000;
-  padding:20px;
+  padding: 20px;
   color: #fff;
 }
 
@@ -34,11 +34,11 @@ body {
       margin-right: 15px;
       cursor: pointer;
       transition: all 0.4s linear;
-      opacity:0.9;
+      opacity: 0.9;
       width: 180px;
       &:hover:not(:disabled) {
-        opacity:1;
-        border:1px solid #fff;
+        opacity: 1;
+        border: 1px solid #fff;
         font-weight: bold;
       }
       &:disabled {
@@ -55,7 +55,7 @@ body {
 .player {
   video {
     width: 100%;
-    height:auto;
+    height: auto;
   }
   &__timestamp {
     color: #999;
@@ -64,20 +64,20 @@ body {
     width: 100%;
     display: flex;
     margin-bottom: 20px;
-    margin-top:20px;
+    margin-top: 20px;
     align-items: center;
     justify-content: space-between;
     button {
-      padding:6px 12px;
+      padding: 6px 12px;
       background: lightblue;
       text-transform: uppercase;
       border: 2px solid #fff;
       border-radius: 6px;
       font-size: 1.2rem;
       color: #333;
-      letter-spacing: .1rem;
+      letter-spacing: 0.1rem;
       cursor: pointer;
-      width:100px;
+      width: 100px;
       &:hover {
         color: #fff;
       }
